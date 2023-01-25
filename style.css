@@ -1,0 +1,246 @@
+:root{
+    --main-bg: #fff;
+    --main-text: #333;
+
+    --title-text: #000;
+    --table-head-bg: #333;
+    --table-head-text: #fff;
+
+    --anchor-text: #666;
+    --anchor-back: #69c;
+    --anchor-on: #fff;
+
+    --color-nor: 144,153,161;
+    --color-fir: 255,156,84;
+    --color-wat: 77,144,213;
+    --color-ele: 243,210,59;
+    --color-gra: 99,187,91;
+    --color-ice: 116,206,192;
+    --color-fig: 206,64,105;
+    --color-poi: 171,106,200;
+    --color-gro: 217,119,70;
+    --color-fly: 143,168,221;
+    --color-psy: 249,113,118;
+    --color-bug: 144,193,44;
+    --color-roc: 199,183,139;
+    --color-gho: 82,105,172;
+    --color-dra: 10,109,196;
+    --color-dar: 90,83,102;
+    --color-ste: 90,142,161;
+    --color-fai: 236,143,230;
+
+    --scroll-main: #C1C1C1;
+    --scroll-back: #F1F1F1;
+    --scroll-shadow: #333;
+
+    --js-twice: #f55;
+    --js-half: #55f;
+    --js-nullity: #555;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-bg: #222;
+        --main-text: #ddd;
+
+        --title-text: #fff;
+        --table-head-bg: #666;
+        --table-head-text: #eee;
+
+        --anchor-text: #bbb;
+
+        --scroll-main: #686868;
+        --scroll-back: #424242;
+        --scroll-shadow: #333;
+
+        --js-twice: #b33;
+        --js-half: #55d;
+        --js-nullity: #666;
+    }
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background: var(--scroll-back);
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 0 0 1px var(--scroll-shadow);
+}
+::-webkit-scrollbar-thumb{
+    background: var(--scroll-main);
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+html{
+    background-color: var(--main-bg);
+    color: var(--main-text);
+    font-family: "Arial", "メイリオ";
+}
+
+h1{
+    color: var(--title-text);
+}
+h2{
+    color: var(--title-text);
+    margin: 10px 0px;
+    font-size: 15px;
+}
+
+a {
+    color: var(--anchor-text);
+    border-bottom: 1px dashed var(--anchor-text);
+    text-decoration: none;
+}
+a:hover{
+    background-color: var(--anchor-back);
+    color: var(--anchor-on);
+    border-bottom:1px dashed var(--anchor-on);
+}
+
+.word_button{
+    user-select: none;
+}
+
+div#main{
+    display: flex;
+    flex-wrap: wrap;
+}
+div#main > div{
+    padding: 0 10px 10px;
+}
+.spacer{
+    width: 100%;
+}
+
+table{
+    border: solid 1px #000;
+    font-weight: bold;
+    border-collapse:collapse;
+}
+td {
+    border: solid 1px #555;
+    padding: 0px;
+    text-align: center;
+    vertical-align: middle;
+}
+td.complement{
+    background-color: var(--table-head-bg);
+    color: var(--table-head-text);
+}
+td.nor{
+    background-color: rgba(var(--color-nor),0.8);
+}
+td.fir{
+    background-color: rgba(var(--color-fir),0.8);
+}
+td.wat{
+    background-color: rgba(var(--color-wat),0.8);
+}
+td.ele{
+    background-color: rgba(var(--color-ele),0.8);
+}
+td.gra{
+    background-color: rgba(var(--color-gra),0.8);
+}
+td.ice{
+    background-color: rgba(var(--color-ice),0.8);
+}
+td.fig{
+    background-color: rgba(var(--color-fig),0.8);
+}
+td.poi{
+    background-color: rgba(var(--color-poi),0.8);
+}
+td.gro{
+    background-color: rgba(var(--color-gro),0.8);
+}
+td.fly{
+    background-color: rgba(var(--color-fly),0.8);
+}
+td.psy{
+    background-color: rgba(var(--color-psy),0.8);
+}
+td.bug{
+    background-color: rgba(var(--color-bug),0.8);
+}
+td.roc{
+    background-color: rgba(var(--color-roc),0.8);
+}
+td.gho{
+    background-color: rgba(var(--color-gho),0.8);
+}
+td.dra{
+    background-color: rgba(var(--color-dra),0.8);
+}
+td.dar{
+    background-color: rgba(var(--color-dar),0.8);
+}
+td.ste{
+    background-color: rgba(var(--color-ste),0.8);
+}
+td.fai{
+    background-color: rgba(var(--color-fai),0.8);
+}
+
+td.row_nor{
+    background-color: rgba(var(--color-nor),0.15);
+}
+td.row_fir{
+    background-color: rgba(var(--color-fir),0.15);
+}
+td.row_wat{
+    background-color: rgba(var(--color-wat),0.15);
+}
+td.row_ele{
+    background-color: rgba(var(--color-ele),0.15);
+}
+td.row_gra{
+    background-color: rgba(var(--color-gra),0.15);
+}
+td.row_ice{
+    background-color: rgba(var(--color-ice),0.15);
+}
+td.row_fig{
+    background-color: rgba(var(--color-fig),0.15);
+}
+td.row_poi{
+    background-color: rgba(var(--color-poi),0.15);
+}
+td.row_gro{
+    background-color: rgba(var(--color-gro),0.15);
+}
+td.row_fly{
+    background-color: rgba(var(--color-fly),0.15);
+}
+td.row_psy{
+    background-color: rgba(var(--color-psy),0.15);
+}
+td.row_bug{
+    background-color: rgba(var(--color-bug),0.15);
+}
+td.row_roc{
+    background-color: rgba(var(--color-roc),0.15);
+}
+td.row_gho{
+    background-color: rgba(var(--color-gho),0.15);
+}
+td.row_dra{
+    background-color: rgba(var(--color-dra),0.15);
+}
+td.row_dar{
+    background-color: rgba(var(--color-dar),0.15);
+}
+td.row_ste{
+    background-color: rgba(var(--color-ste),0.15);
+}
+td.row_fai{
+    background-color: rgba(var(--color-fai),0.15);
+}
+
+img{
+    width: 20px;
+    vertical-align: middle;
+    filter: brightness(100) invert(0);
+}
