@@ -284,9 +284,15 @@ function pokesDisplay() {
 
     for (let i = 0; i < conf_poke_list.length; i++) {
         if (nulldata === 4) {
-            document.getElementById("pokeicon_" + i).style.display = "none";
-            document.getElementById("pokeicon_" + i).src
-                    = "img/pokes-icon/poke_589.png";
+            if (i === 0) {
+                document.getElementById("pokeicon_" + i).style.display = null;
+                document.getElementById("pokeicon_" + i).src
+                        = "img/pokes-icon/poke_589.png";
+            } else {
+                document.getElementById("pokeicon_" + i).style.display = "none";
+                document.getElementById("pokeicon_" + i).src
+                        = "img/pokes-icon/poke_589.png";
+            }
         } else {
             document.getElementById("pokeicon_" + i).style.display = null;
             document.getElementById("pokeicon_" + i).src
