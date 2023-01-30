@@ -110,6 +110,11 @@ div#main{
 div#main > div{
     padding: 0 10px 10px;
 }
+#info{
+    font-size: 12px;
+    display: none;
+    padding: 0px 10px;
+}
 .spacer{
     width: 100%;
 }
@@ -239,8 +244,12 @@ td.row_fai{
     background-color: rgba(var(--color-fai),0.15);
 }
 
-img{
+img:not(.pokeicon){
     width: 20px;
     vertical-align: middle;
     filter: brightness(100) invert(0);
+}
+.pokeicon{
+    width: 30px;
+    margin: 10px 4px 0;
 }
