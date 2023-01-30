@@ -12,6 +12,11 @@ var conf_type_list = [
     0, 0, 0, 0, 0, 0, 0, 0, 0
 ];
 
+var conf_poke_list = [
+    0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0
+];
+
 window.onload = function () {
     setTable();
 
@@ -92,14 +97,14 @@ function typeDel(num) {
 function myTypeSet() {
     for (let i = 0; i < my_type_list.length; i++) {
         if (my_type_list[i] === -1) {
-            document.getElementById("my_img_" + i).src = "types-icon/null.png";
+            document.getElementById("my_img_" + i).src = "img/types-icon/null.png";
             document.getElementById("my_imgbg_" + i).style.background = null;
             for (let j = 0; j < document.getElementsByClassName("my_bg_" + i).length; j++) {
                 document.getElementsByClassName("my_bg_" + i)[j].style.background = null;
             }
         } else {
             document.getElementById("my_img_" + i).src
-                    = "types-icon/" + type_abb[my_type_list[i]] + ".png";
+                    = "img/types-icon/" + type_abb[my_type_list[i]] + ".png";
             document.getElementById("my_imgbg_" + i).style.background
                     = "rgba(var(--color-" + type_abb[my_type_list[i]] + "),0.8)";
             for (let j = 0; j < document.getElementsByClassName("my_bg_" + i).length; j++) {
@@ -206,6 +211,8 @@ function confTableSet() {
     } else {
         document.getElementById("conf_rowspan").innerHTML = "防御側";
     }
+
+    pokesLoad();
 }
 
 function info_display() {
@@ -218,5 +225,72 @@ function info_display() {
     } else {
         change.style.display = "block";
         document.getElementById("info_title").innerHTML = "#このサイトについて ▲";
+    }
+}
+
+function pokesLoad() {
+    comp = 1;
+    comp_list = [1, 1, 1, 1];
+    conf_poke_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    acc = 0;
+
+    q = 0;
+    for (let i = 0; i < poke_data.length; i++) {
+        comp_list = [1, 1, 1, 1];
+        acc = 0;
+        console.log("poke[" + i + "]:");
+        for (let j = 0; j < my_type_list.length; j++) {
+            comp = 1;
+            if (my_type_list[j] === -1) {
+                comp = -1;
+            } else {
+                if (poke_data[i][2] === 0) {
+                    comp *= compatibility[my_type_list[j]][poke_data[i][1] - 1];
+                } else {
+                    comp *= compatibility[my_type_list[j]][poke_data[i][1] - 1]
+                            * compatibility[my_type_list[j]][poke_data[i][2] - 1];
+                }
+            }
+            comp_list[j] = comp;
+            console.log("[" + j + "]:" + comp);
+        }
+        for (let p = 0; p < comp_list.length; p++) {
+            if (comp_list[p] > 1) {
+                acc = 1;
+                break;
+            } else {
+            }
+        }
+        if (acc !== 1) {
+            conf_poke_list[q] = i;
+            q++;
+        }
+        if (q > 9) {
+            break;
+        }
+    }
+
+    pokesDisplay();
+}
+
+function pokesDisplay() {
+    nulldata = 0;
+
+    for (let i = 0; i < my_type_list.length; i++) {
+        if (my_type_list[i] === -1) {
+            nulldata++;
+        }
+    }
+
+    for (let i = 0; i < conf_poke_list.length; i++) {
+        if (nulldata === 4) {
+            document.getElementById("pokeicon_" + i).style.display = "none";
+            document.getElementById("pokeicon_" + i).src
+                    = "img/pokes-icon/poke_589.png";
+        } else {
+            document.getElementById("pokeicon_" + i).style.display = null;
+            document.getElementById("pokeicon_" + i).src
+                    = "img/pokes-icon/poke_" + poke_data[conf_poke_list[i]][0] + ".png";
+        }
     }
 }
