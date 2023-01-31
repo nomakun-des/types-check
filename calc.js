@@ -288,6 +288,8 @@ function pokesDisplay() {
                 document.getElementById("pokeicon_" + i).style.display = null;
                 document.getElementById("pokeicon_" + i).src
                         = "img/pokes-icon/poke_589.png";
+                document.getElementById("pokename_" + i).innerHTML
+                        = "ポケモン名";
             } else {
                 document.getElementById("pokeicon_" + i).style.display = "none";
                 document.getElementById("pokeicon_" + i).src
@@ -297,6 +299,8 @@ function pokesDisplay() {
             document.getElementById("pokeicon_" + i).style.display = null;
             document.getElementById("pokeicon_" + i).src
                     = "img/pokes-icon/poke_" + poke_data[conf_poke_list[i]][0] + ".png";
+            document.getElementById("pokename_" + i).innerHTML
+                    = poke_data[conf_poke_list[i]][3];
         }
     }
 }
